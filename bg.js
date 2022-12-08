@@ -1,7 +1,7 @@
 messenger.runtime.onMessage.addListener(async (message, sender) => {
-    if (! (message && message.hasOwnProperty("command"))) { return ""; }
+    if ( !(message && message.hasOwnProperty("command")) ) { return ""; }
     const header = await messenger.messageDisplay.getDisplayedMessage(sender.tab.id);
-    if (!header) { return ""; }
+    if( !header ) { return ""; }
     switch( message.command ){
     case "getId":
         return header.headerMessageId;
