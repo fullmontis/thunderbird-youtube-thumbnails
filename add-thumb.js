@@ -1,9 +1,14 @@
 async function add_thumb() {
-    var header = await browser.runtime.sendMessage({command: "getId"});
-    if( header == "" ){ return; }
-    var id_match = header.match(/yt:video:([^@]*)@.*/);
-    if( id_match.length != 2 ) { return; }
-    var video_id = id_match[1];
+    var mess = await browser.runtime.sendMessage({command: "getYoutubeId"});
+    if( mess == "" ){ return; }
+
+    console.log(mess);
+
+    var link = mess.headers["content-base"][0];
+    var regexp = /https:\/\/www.youtube.com\/watch\?v=/;
+    if( !regexp.test(link) ) { return; }
+    var video_id = link.replace(regexp,"");
+    console.log(video_id);
     var thumb_url = `https://img.youtube.com/vi/${video_id}/maxresdefault.jpg`;
 
     var img = document.createElement("img");
@@ -12,4 +17,4 @@ async function add_thumb() {
     document.body.insertBefore(img,document.body.firstChild);
 }
 
-add_thumb();
+add_thumb().catch((e) => {console.log(e);});
