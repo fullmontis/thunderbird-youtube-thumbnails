@@ -11,10 +11,13 @@ async function add_thumb() {
     console.log(video_id);
     var thumb_url = `https://img.youtube.com/vi/${video_id}/maxresdefault.jpg`;
 
+    var a = document.createElement("a");
+    a.href = link;
     var img = document.createElement("img");
     img.src = thumb_url;
     img.classList.add("yt_thumbnail");
-    document.body.insertBefore(img,document.body.firstChild);
+    a.appendChild(img);
+    document.body.insertBefore(a,document.body.firstChild);
 }
 
 add_thumb().catch((e) => {console.log(e);});
