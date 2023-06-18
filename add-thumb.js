@@ -9,7 +9,7 @@ async function add_thumb() {
     if( !regexp.test(link) ) { return; }
     var video_id = link.replace(regexp,"");
     console.log(video_id);
-    var thumb_url = `https://img.youtube.com/vi/${video_id}/maxresdefault.jpg`;
+    var thumb_url = `https://i.ytimg.com/vi/${video_id}/maxresdefault.jpg`;
 
     var a = document.createElement("a");
     a.href = link;
