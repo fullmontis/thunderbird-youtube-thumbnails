@@ -2,8 +2,8 @@
 
 **Install**
 
-- Download repository as .zip
-- Rename with extension .xpi 
+- Make .zip containing all the files in the zip root (downloading the project as zip creates a project dir which will prevent Thunderbird from reading the files)
+- Rename with extension .xpi (appears to be optional)
 - Add in Thunderbird as extension from file (Add-ons Manager -> Gear Icon -> Install Add On From File)
 
 You should be able to see the thumbnails added to any feed coming from a YouTube channel.
