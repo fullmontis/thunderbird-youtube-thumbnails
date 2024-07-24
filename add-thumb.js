@@ -4,7 +4,7 @@ async function add_thumb() {
 
     console.log(mess);
 
-    var link = mess.headers["content-base"][0];
+    var link = mess.parts[0].headers["content-base"][0];
     var regexp = /https:\/\/www.youtube.com\/watch\?v=/;
     if( !regexp.test(link) ) { return; }
     var video_id = link.replace(regexp,"");
